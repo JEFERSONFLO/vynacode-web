@@ -3,668 +3,599 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vynacode - Software que conecta y avanza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Jeferson - Desarrollador Full Stack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --neon-green: #39E991;
-            --dark-bg: #262833;
-            --white: #FFFFFF;
-            --light-green: #67EEAA;
-            --intense-green: #18D777;
-            --blue-gray: #3C3F50;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #f8f9fa;
+            font-family: 'Inter', sans-serif;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            margin-bottom: 1rem;
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .tech-gradient {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
-        
-        /* Header */
-        header {
-            background-color: var(--dark-bg);
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .project-gradient {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
-        .logo {
-            display: flex;
-            align-items: center;
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--neon-green);
-            border-radius: 8px;
-            margin-right: 10px;
-            position: relative;
-            overflow: hidden;
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
-        .logo-icon::before {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: var(--light-green);
-            top: 5px;
-            left: 10px;
-        }
-        
-        .logo-icon::after {
-            content: "";
-            position: absolute;
-            width: 30px;
-            height: 10px;
-            background-color: var(--intense-green);
-            bottom: 5px;
-            left: 5px;
-            border-radius: 5px;
-        }
-        
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--neon-green);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav li {
-            margin-left: 1.5rem;
-        }
-        
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--neon-green);
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--blue-gray) 100%);
-            color: var(--white);
-            padding: 5rem 0;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .hero .slogan {
-            color: var(--neon-green);
-            font-weight: 600;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--neon-green);
-            color: var(--dark-bg);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--light-green);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(57, 233, 145, 0.3);
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 5rem 0;
-            background-color: var(--white);
-        }
-        
         .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark-bg);
-        }
-        
-        .section-title p {
-            color: var(--blue-gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            text-align: center;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background-color: var(--light-green);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark-bg);
-            font-size: 1.8rem;
-        }
-        
-        .service-card h3 {
-            color: var(--dark-bg);
-            margin-bottom: 1rem;
-        }
-        
-        .service-card p {
-            color: var(--blue-gray);
-        }
-        
-        /* About Section */
-        .about {
-            padding: 5rem 0;
-            background-color: #f0f2f5;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h2 {
-            color: var(--dark-bg);
-            margin-bottom: 1.5rem;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--blue-gray);
-        }
-        
-        .about-visual {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .brand-mascot {
-            width: 300px;
-            height: 300px;
-            background-color: var(--dark-bg);
-            border-radius: 50%;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .brand-mascot::before {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background-color: var(--neon-green);
-            border-radius: 50%;
-            top: 50px;
-            left: 50px;
-            opacity: 0.7;
-        }
-        
-        .brand-mascot::after {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: var(--intense-green);
-            border-radius: 50%;
-            top: 100px;
-            left: 100px;
-        }
-        
-        /* Values Section */
-        .values {
-            padding: 5rem 0;
-            background-color: var(--white);
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .value-item {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-        
-        .value-icon {
-            font-size: 2.5rem;
-            color: var(--neon-green);
-            margin-bottom: 1rem;
-        }
-        
-        .value-item h3 {
-            color: var(--dark-bg);
-            margin-bottom: 1rem;
-        }
-        
-        .value-item p {
-            color: var(--blue-gray);
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--blue-gray) 100%);
-            color: var(--white);
-            text-align: center;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta p {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn-light {
-            background-color: var(--white);
-            color: var(--dark-bg);
-        }
-        
-        .btn-light:hover {
-            background-color: var(--light-green);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-bg);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-column h3 {
-            color: var(--neon-green);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-column a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column a:hover {
-            color: var(--neon-green);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-link {
             display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: var(--blue-gray);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            transition: all 0.3s;
         }
-        
-        .social-link:hover {
-            background-color: var(--neon-green);
-            transform: translateY(-3px);
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--blue-gray);
-            color: var(--light-green);
-            font-size: 0.9rem;
+        .hero-pattern {
+            background-image: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 55%), 
+                              radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 55%);
         }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            nav {
-                width: 100%;
-                margin-top: 1rem;
-                display: none;
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            nav li {
-                margin: 0;
-                margin-bottom: 0.5rem;
-            }
-            
-            .mobile-menu {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .brand-mascot {
-                width: 250px;
-                height: 250px;
-            }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, -15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #667eea;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #667eea; }
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <div class="logo-icon"></div>
-                <div class="logo-text">Vynacode</div>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-10 ">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-indigo-600">Jeferson</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-gray-600 hover:text-indigo-600 transition font-medium">Inicio</a>
+                    <a href="#sobre-mi" class="text-gray-600 hover:text-indigo-600 transition font-medium">Sobre Mí</a>
+                    <a href="#habilidades" class="text-gray-600 hover:text-indigo-600 transition font-medium">Habilidades</a>
+                    <a href="#proyectos" class="text-gray-600 hover:text-indigo-600 transition font-medium">Proyectos</a>
+                    <a href="#contacto" class="text-gray-600 hover:text-indigo-600 transition font-medium">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
             </div>
-            <div class="mobile-menu">☰</div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Inicio</a></li>
-                    <li><a href="#services">Servicios</a></li>
-                    <li><a href="#about">Nosotros</a></li>
-                    <li><a href="#values">Valores</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-4 bg-white p-4 rounded-lg shadow-lg">
+                <a href="#inicio" class="block text-gray-600 hover:text-indigo-600 transition font-medium">Inicio</a>
+                <a href="#sobre-mi" class="block text-gray-600 hover:text-indigo-600 transition font-medium">Sobre Mí</a>
+                <a href="#habilidades" class="block text-gray-600 hover:text-indigo-600 transition font-medium">Habilidades</a>
+                <a href="#proyectos" class="block text-gray-600 hover:text-indigo-600 transition font-medium">Proyectos</a>
+                <a href="#contacto" class="block text-gray-600 hover:text-indigo-600 transition font-medium">Contacto</a>
+            </div>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Vynacode</h1>
-            <p class="slogan">"Conectando ideas, creando futuro"</p>
-            <p>Desarrollamos sitios web, apps Android y software a medida. Convertimos tus ideas en soluciones digitales innovadoras y funcionales.</p>
-            <a href="#contact" class="btn">Comenzar Proyecto</a>
+    <!-- Hero Section - Pantalla Completa -->
+    <section id="inicio" class="min-h-screen gradient-bg  text-gray-800 hero-pattern flex items-center pt-16 ">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <div class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-6 glass-effect">
+                        <span class="flex items-center">
+                            <i data-lucide="zap" class="w-4 h-4 mr-2"></i>
+                            Disponible para proyectos freelance
+                        </span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+                        Hola, soy <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">Jeferson</span>
+                    </h1>
+                    <div class="text-2xl md:text-3xl font-semibold mb-6 typewriter">
+                        Desarrollador Full Stack & Cloud
+                    </div>
+                    <p class="text-xl mb-8 max-w-lg opacity-90 leading-relaxed">
+                        Con 3 años de experiencia creando soluciones digitales robustas y escalables. 
+                        Especializado en desarrollo backend, frontend y administración de infraestructura cloud.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#proyectos" class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition flex items-center justify-center shadow-lg">
+                            <i data-lucide="folder-open" class="w-5 h-5 mr-2"></i>
+                            Explorar Proyectos
+                        </a>
+                        <a href="#contacto" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition flex items-center justify-center">
+                            <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
+                            Contactar Ahora
+                        </a>
+                    </div>
+                    <div class="mt-12 flex items-center space-x-6">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                            <span class="text-sm">3+ años de experiencia</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-lucide="globe" class="w-4 h-4 mr-2"></i>
+                            <span class="text-sm">Trabajo remoto</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center relative">
+                    <div class="relative w-full max-w-lg">
+                        <div class="absolute -top-10 -left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+                        <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+                        <div class="absolute top-20 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+                        
+                        <div class="relative bg-white p-8 rounded-3xl shadow-2xl hover-lift floating">
+                            <div class="bg-gradient-to-br from-indigo-100 to-purple-100 h-80 rounded-2xl flex flex-col items-center justify-center p-6">
+                                <div class="text-center mb-6">
+                                    <i data-lucide="server" class="w-24 h-24 text-indigo-500 mx-auto mb-4"></i>
+                                    <h3 class="text-2xl font-bold text-indigo-700">Arquitectura Backend</h3>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 w-full">
+                                    <div class="bg-white/70 rounded-lg p-3 text-center">
+                                        <i data-lucide="database" class="w-6 h-6 text-indigo-600 mx-auto mb-1"></i>
+                                        <p class="text-xs font-medium text-indigo-800">Bases de Datos</p>
+                                    </div>
+                                    <div class="bg-white/70 rounded-lg p-3 text-center">
+                                        <i data-lucide="code" class="w-6 h-6 text-indigo-600 mx-auto mb-1"></i>
+                                        <p class="text-xs font-medium text-indigo-800">APIs</p>
+                                    </div>
+                                    <div class="bg-white/70 rounded-lg p-3 text-center">
+                                        <i data-lucide="cloud" class="w-6 h-6 text-indigo-600 mx-auto mb-1"></i>
+                                        <p class="text-xs font-medium text-indigo-800">Cloud</p>
+                                    </div>
+                                    <div class="bg-white/70 rounded-lg p-3 text-center">
+                                        <i data-lucide="shield" class="w-6 h-6 text-indigo-600 mx-auto mb-1"></i>
+                                        <p class="text-xs font-medium text-indigo-800">Seguridad</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 text-center">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Especialista en Backend</h3>
+                                <p class="text-gray-600">APIs escalables, bases de datos optimizadas y arquitectura de microservicios</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+                <a href="#sobre-mi" class="flex flex-col items-center text-white opacity-70 hover:opacity-100 transition">
+                    <span class="text-sm mb-2 text-gray-800">Ver más</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 animate-bounce text-gray-800"></i>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestros Servicios</h2>
-                <p>Ofrecemos soluciones tecnológicas integrales para impulsar tu negocio</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Desarrollo Web</h3>
-                    <p>Creación de sitios web modernos, responsivos y optimizados para todos los dispositivos.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Apps Móviles</h3>
-                    <p>Desarrollo de aplicaciones Android nativas y multiplataforma con excelente UX/UI.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">⚙️</div>
-                    <h3>Software a Medida</h3>
-                    <p>Soluciones personalizadas que se adaptan perfectamente a las necesidades de tu empresa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Nuestra Historia</h2>
-                    <p>Vynacode nace de la idea de que el software debe conectar personas, sistemas e ideas. Cada línea de código que desarrollamos tiene un propósito: impulsar el avance, crear soluciones eficientes y unir mundos digitales.</p>
-                    <p>Nuestro nombre refleja nuestro compromiso con la innovación constante, la fluidez tecnológica y la excelencia en cada proyecto.</p>
-                    <p>Pronunciación: /VAI-na-code/ o /VIN-a-code/</p>
-                </div>
-                <div class="about-visual">
-                    <div class="brand-mascot"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="values" id="values">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestros Valores</h2>
-                <p>Los principios que guían nuestro trabajo y relación con los clientes</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-item">
-                    <div class="value-icon">🚀</div>
-                    <h3>Innovación</h3>
-                    <p>Buscamos constantemente nuevas formas de resolver problemas y mejorar procesos.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">🔒</div>
-                    <h3>Confiabilidad</h3>
-                    <p>Nuestras soluciones son robustas, seguras y diseñadas para durar.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">🔗</div>
-                    <h3>Conectividad</h3>
-                    <p>Creamos puentes entre tecnologías, sistemas y personas.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">📈</div>
-                    <h3>Progreso</h3>
-                    <p>Cada proyecto es una oportunidad para avanzar y superar expectativas.</p>
+    <!-- El resto de las secciones se mantienen igual -->
+    <!-- Sobre Mí Section -->
+    <section id="sobre-mi" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4 section-title">Sobre Mí</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Desarrollador full stack con pasión por crear soluciones tecnológicas innovadoras</p>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Mi Experiencia</h3>
+                        <p class="text-gray-700 mb-6">
+                            Con 3 años de experiencia en el desarrollo de aplicaciones web y móviles, 
+                            me especializo en crear soluciones backend robustas con Node.js y Laravel, 
+                            complementadas con interfaces de usuario modernas en React y React Native.
+                        </p>
+                        <p class="text-gray-700 mb-6">
+                            Mi experiencia incluye la administración de infraestructura cloud, 
+                            despliegue de aplicaciones y optimización de bases de datos para 
+                            garantizar un rendimiento óptimo en cada proyecto.
+                        </p>
+                        <div class="flex items-center mt-8">
+                            <div class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-lg font-medium">
+                                <span class="flex items-center">
+                                    <i data-lucide="award" class="w-5 h-5 mr-2"></i>
+                                    3+ Años de Experiencia
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Enfoque Técnico</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i data-lucide="code" class="w-5 h-5 text-indigo-600 mr-2"></i>
+                                    <h4 class="font-medium text-gray-800">Desarrollo Full Stack</h4>
+                                </div>
+                                <p class="text-gray-600 text-sm">Backend, frontend y aplicaciones móviles con las últimas tecnologías</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i data-lucide="cloud" class="w-5 h-5 text-indigo-600 mr-2"></i>
+                                    <h4 class="font-medium text-gray-800">Infraestructura Cloud</h4>
+                                </div>
+                                <p class="text-gray-600 text-sm">Administración de VPS, despliegue y optimización de aplicaciones</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i data-lucide="database" class="w-5 h-5 text-indigo-600 mr-2"></i>
+                                    <h4 class="font-medium text-gray-800">Bases de Datos</h4>
+                                </div>
+                                <p class="text-gray-600 text-sm">Diseño, optimización y gestión de bases de datos relacionales y NoSQL</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="contact">
-        <div class="container">
-            <h2>¿Listo para llevar tu idea al siguiente nivel?</h2>
-            <p>Contáctanos hoy mismo y descubre cómo podemos transformar tu visión en una solución digital innovadora.</p>
-            <a href="mailto:info@vynacode.com" class="btn btn-light">Contactar Ahora</a>
+    <!-- Habilidades Section -->
+    <section id="habilidades" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4 section-title">Habilidades Técnicas</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Tecnologías y herramientas que utilizo para crear soluciones innovadoras</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Backend -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 bg-indigo-100 rounded-lg mr-4">
+                            <i data-lucide="server" class="w-6 h-6 text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Backend</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Node.js & Nest.js</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Laravel</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Express.js</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>APIs REST & GraphQL</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Frontend -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 bg-blue-100 rounded-lg mr-4">
+                            <i data-lucide="layout" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Frontend</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>React & React Native</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Vite</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>WordPress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Tailwind CSS</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cloud & DevOps -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 bg-green-100 rounded-lg mr-4">
+                            <i data-lucide="cloud" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Cloud & DevOps</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Administración de VPS</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Servicios Cloud (AWS)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>CI/CD & Docker</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Despliegue de Apps</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bases de Datos -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 bg-purple-100 rounded-lg mr-4">
+                            <i data-lucide="database" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Bases de Datos</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>MySQL & PostgreSQL</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>MongoDB</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Redis</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <span>Optimización</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos Section -->
+    <section id="proyectos" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4 section-title">Mis Proyectos</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Algunos de los proyectos en los que he trabajado recientemente</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- App de Reservas de Vehículos -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+                    <div class="h-48 bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
+                        <i data-lucide="car" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">App de Reservas de Vehículos</h3>
+                        <p class="text-gray-600 mb-4">Sistema completo de reserva de vehículos con aplicación móvil en React Native y backend en Nest.js. Incluye gestión de flota, reservas y pagos.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full">React Native</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full">Nest.js</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full">Node.js</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App de Alertas de Seguridad -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+                    <div class="h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                        <i data-lucide="shield-alert" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">App de Alertas de Seguridad</h3>
+                        <p class="text-gray-600 mb-4">Aplicación móvil en React Native con backend propio. Sistema de notificaciones y alertas de seguridad en tiempo real.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">React Native</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Node.js</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Backend</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Notificaciones Push</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ecotourstravel -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center">
+                        <i data-lucide="globe" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Ecotourstravel</h3>
+                        <p class="text-gray-600 mb-4">Sitio web para empresa de turismo con WordPress y backend en Node.js para gestión de reservas, servicios y pagos.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">WordPress</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Node.js</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Backend</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Sistema de Reservas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Codex Fraternidades -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                        <i data-lucide="ticket" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Codex Fraternidades</h3>
+                        <p class="text-gray-600 mb-4">Plataforma para canjear códigos de eventos y obtener invitaciones. Sistema de gestión de usuarios, eventos y códigos promocionales.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Web App</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Backend</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Sistema de Códigos</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Gestión de Eventos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App de Exámenes de Policía -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center">
+                        <i data-lucide="file-text" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">App de Exámenes de Policía</h3>
+                        <p class="text-gray-600 mb-4">Aplicación React Native para resolver exámenes de policía. Interfaz intuitiva, sistema de evaluación y seguimiento de progreso.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">React Native</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Mobile App</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Sistema de Evaluación</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Base de Datos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App de Préstamos -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+                    <div class="h-48 bg-gradient-to-r from-amber-500 to-orange-500 flex items-center justify-center">
+                        <i data-lucide="dollar-sign" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">App de Préstamos</h3>
+                        <p class="text-gray-600 mb-4">Aplicación web para gestión de préstamos desarrollada con React Vite y backend en Laravel. Sistema completo de solicitud y aprobación.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full">React Vite</span>
+                            <span class="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full">Laravel</span>
+                            <span class="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full">Backend</span>
+                            <span class="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full">Sistema de Préstamos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4 section-title">Contacto</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">¿Tienes un proyecto en mente? Hablemos sobre cómo puedo ayudarte</p>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 gradient-bg text-white p-10">
+                        <h3 class="text-2xl font-semibold mb-4">¡Hablemos!</h3>
+                        <p class="mb-6 opacity-90">Estoy disponible para colaborar en proyectos interesantes. No dudes en contactarme para discutir tus ideas y cómo puedo contribuir a hacerlas realidad.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="p-2 bg-white/20 rounded-lg mr-4">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <span>tu.email@ejemplo.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="p-2 bg-white/20 rounded-lg mr-4">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <span>+1 (123) 456-7890</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="p-2 bg-white/20 rounded-lg mr-4">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <span>Ubicación flexible / Remoto</span>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex space-x-4">
+                            <a href="#" class="p-3 bg-white/20 rounded-lg hover:bg-white/30 transition">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#" class="p-3 bg-white/20 rounded-lg hover:bg-white/30 transition">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#" class="p-3 bg-white/20 rounded-lg hover:bg-white/30 transition">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-10">
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Asunto</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition flex items-center justify-center">
+                                <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Vynacode</h3>
-                    <p>Software que conecta y avanza. Código que impulsa soluciones innovadoras y crea vínculos.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">f</a>
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">tw</a>
-                        <a href="#" class="social-link">ig</a>
-                    </div>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-white mb-2">Jeferson</div>
+                    <p class="text-gray-400">Desarrollador Full Stack & Cloud</p>
                 </div>
-                <div class="footer-column">
-                    <h3>Servicios</h3>
-                    <ul>
-                        <li><a href="#">Desarrollo Web</a></li>
-                        <li><a href="#">Apps Móviles</a></li>
-                        <li><a href="#">Software a Medida</a></li>
-                        <li><a href="#">Consultoría Tecnológica</a></li>
-                    </ul>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition p-2 bg-gray-700 rounded-lg">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition p-2 bg-gray-700 rounded-lg">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition p-2 bg-gray-700 rounded-lg">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
                 </div>
-                <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="#home">Inicio</a></li>
-                        <li><a href="#services">Servicios</a></li>
-                        <li><a href="#about">Nosotros</a></li>
-                        <li><a href="#values">Valores</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li>Email: info@vynacode.com</li>
-                        <li>Tel: +1 (555) 123-4567</li>
-                        <li>Web: vynacode.com</li>
-                    </ul>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">Disponible para proyectos remotos</p>
+                    <p class="text-gray-400 mt-1">3+ años de experiencia</p>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 Vynacode. Todos los derechos reservados.</p>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Jeferson. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    document.querySelector('nav').classList.remove('active');
-                }
-            });
-        });
-    </script>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
